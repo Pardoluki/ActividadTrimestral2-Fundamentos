@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RegistroEntrenamientos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e54d30cab65eaa9b676cd54a54331b71dca14b1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9652f16caf0d0eb400be2f864d5cbfbbd70cd6e8")]
 [assembly: System.Reflection.AssemblyProductAttribute("RegistroEntrenamientos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RegistroEntrenamientos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
