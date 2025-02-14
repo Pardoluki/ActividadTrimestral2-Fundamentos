@@ -1,4 +1,3 @@
-# ActividadTrimestral2-Fundamentos
 # Actividad Trimestral 2 - Fundamentos de la Programación: Registro de Entrenamientos
 
 Este proyecto es una aplicación de consola en C# que permite gestionar sesiones de usuarios para registrar y administrar sus entrenamientos. A continuación, se detallan las características y el funcionamiento del sistema.
