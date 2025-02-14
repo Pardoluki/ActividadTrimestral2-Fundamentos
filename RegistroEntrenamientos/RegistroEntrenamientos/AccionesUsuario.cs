@@ -8,43 +8,44 @@ de la lista, el sistema dirá: "Bienvenido". Si no existe, dirá: "Log in incorr
 
 public class AccionesUsuario
 {
+    AccionesEntrenamiento accionesEntrenamiento = new AccionesEntrenamiento();
     private Dictionary<string, string> credencialesUsuarios = new Dictionary<string, string>();
-    private string nombre;
+    private static string nombre;
     private string contrasena;
 
     public void RegistrarUsuario()
     {
-        Console.WriteLine("Por favor, introduzca su nombre de usuario:");
+        Console.WriteLine("\nPor favor, introduzca su nombre de usuario:");
         nombre = Console.ReadLine();
 
         while (credencialesUsuarios.ContainsKey(nombre))
         {
-            Console.WriteLine("El usuario ya existe. Por favor, introduzca otro nombre de usuario:");
+            Console.WriteLine("\nEl usuario ya existe. Por favor, introduzca otro nombre de usuario:");
             nombre = Console.ReadLine();
         }
 
-        Console.WriteLine("Por favor, introduzca su contraseña:");
+        Console.WriteLine("\nPor favor, introduzca su contraseña:");
         contrasena = Console.ReadLine();
         credencialesUsuarios.Add(nombre, contrasena);
-        Console.WriteLine("Usuario registrado con éxito.");
-        return;
+        Console.WriteLine("\nUsuario registrado con éxito.");
     }
 
-    public void LogearUsuario()
+    public int LogearUsuario()
     {
-        Console.WriteLine("Por favor, introduzca su nombre de usuario:");
+        Console.WriteLine("\nPor favor, introduzca su nombre de usuario:");
         string nombre = Console.ReadLine();
-        Console.WriteLine("Por favor, introduzca su contraseña:");
+        Console.WriteLine("\nPor favor, introduzca su contraseña:");
         string contrasena = Console.ReadLine();
 
         if (credencialesUsuarios.ContainsKey(nombre) && credencialesUsuarios[nombre] == contrasena)
         {
-            Console.WriteLine("Bienvenido");
+            Console.WriteLine($"\nBienvenido, {nombre}.");
+            return 0;
         }
         else
         {
-            Console.WriteLine("Usuario o contraseña incorrectos");
+            Console.WriteLine("Usuario o contraseña incorrectos.");
         }
-        return;
+        return 1;
     }
 }

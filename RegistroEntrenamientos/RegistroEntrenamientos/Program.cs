@@ -26,39 +26,42 @@ indicando si se ha podido logear o no
 
 class Program
 {
+    static AccionesUsuario accionesUsuario = new AccionesUsuario();
+    static AccionesEntrenamiento accionesEntrenamiento = new AccionesEntrenamiento();
+    static int opcionMainMenu;
+
     public static void Main(string[] args)
     {
         do
         {
-            MainMenu();
-        } while (true);
+            opcionMainMenu = MainMenu();  
+        } while (opcionMainMenu == 1);
+
+        if (opcionMainMenu == 0)
+        {
+            accionesEntrenamiento.TrainingMenu();
+            Console.WriteLine();
+        }
     }
 
-    public static void MainMenu()
+    public static int MainMenu()
     {
-        Console.WriteLine("Bienvenido al sistema de registro de entrenamientos. Por favor, seleccione una opción:");
+        Console.WriteLine("\nBienvenido al sistema de registro de entrenamientos. Por favor, seleccione una opción:");
         Console.WriteLine("1. Registrar usuario");
         Console.WriteLine("2. Iniciar sesión con usuario existente");
-        Console.WriteLine("3. Salir");
 
-        string opcion = Console.ReadLine();
+        opcionMainMenu = int.Parse(Console.ReadLine());
 
-        switch (opcion)
+        switch (opcionMainMenu)
         {
-            case "1":
-                AccionesUsuario registrarUsuario = new AccionesUsuario();
-                registrarUsuario.RegistrarUsuario();
-                break;
-            case "2":
-                AccionesUsuario logearUsuario = new AccionesUsuario();
-                logearUsuario.LogearUsuario();
-                break;
-            case "3":
-                Console.WriteLine("¡Hasta pronto!");
-                return;
+            case 1:
+                accionesUsuario.RegistrarUsuario();
+                return 1;
+            case 2:
+                return accionesUsuario.LogearUsuario();
             default:
-                Console.WriteLine("Opción no válida");
-                break;
+                Console.WriteLine("Opción no válida.");
+                return 1;
         }
     }
 }
