@@ -1,42 +1,21 @@
-﻿/*
-Crea un programa que permita gestionar sesiones de usuarios para poder introducir sus
-marcas de entrenamientos. Para ello el sistema permitirá:
-- Registrar usuarios: pidiendo un correo y una contraseña. No será posible registrar dos
-usuarios con el mismo nombre
-- Logear usuario: pidiendo un correo y una contraseña. En el caso de que exista dentro
-de la lista, el sistema dejará las siguientes acciones
-o Registrar un entrenamiento: donde se pedirá la distancia recorrida y el tiempo
-empleado
-o Listar entrenamientos: donde se mostrarán todos los entrenamientos
-introducidos
-o Vaciar entrenamientos: Vaciará la lista de todos los entrenamientos
-o Cerrar sesión
-Toda la función se realizará mediante un menú iterativo
-
-
-Funciones:
-- RegistrarUsuario: recibe por consola un correo y una contraseña y lo guarda dentro de un
-diccionario
-- LogearUsuario: recibe un correo y una contraseña y devuelve un booleano
-indicando si se ha podido logear o no
-- RegistrarEntrenamiento: recibe la distancia y el tiempo y lo añade a la lista
-- ListarEntrenamientos: muestra por pantalla todos los entrenamientos
-- VaciarEntrenamientos: vacía la lista de entrenamientos
-*/
-
-class Program
+﻿class Program
 {
+    // Instancia de la clase AccionesUsuario para manejar las acciones relacionadas con el usuario
     static AccionesUsuario accionesUsuario = new AccionesUsuario();
+    // Instancia de la clase AccionesEntrenamiento para manejar las acciones relacionadas con los entrenamientos
     static AccionesEntrenamiento accionesEntrenamiento = new AccionesEntrenamiento();
+    // Variable para almacenar la opción seleccionada en el menú principal
     static int opcionMainMenu;
 
     public static void Main(string[] args)
     {
+        // Bucle para mostrar el menú principal hasta que MainMenu() devuelva una opción diferente a 1
         do
         {
             opcionMainMenu = MainMenu();  
         } while (opcionMainMenu == 1);
 
+        // Si el método MainMenu() devuelve 0, se muestra el menú de entrenamientos
         if (opcionMainMenu == 0)
         {
             accionesEntrenamiento.TrainingMenu();
@@ -46,20 +25,26 @@ class Program
 
     public static int MainMenu()
     {
+        // Mostrar el menú principal
         Console.WriteLine("\nBienvenido al sistema de registro de entrenamientos. Por favor, seleccione una opción:");
         Console.WriteLine("1. Registrar usuario");
         Console.WriteLine("2. Iniciar sesión con usuario existente");
 
+        // Leer la opción seleccionada por el usuario
         opcionMainMenu = int.Parse(Console.ReadLine());
 
+        // Procesar la opción seleccionada
         switch (opcionMainMenu)
         {
             case 1:
+                // Registrar un nuevo usuario
                 accionesUsuario.RegistrarUsuario();
                 return 1;
             case 2:
+                // Iniciar sesión con un usuario existente
                 return accionesUsuario.LogearUsuario();
             default:
+                // Opción no válida
                 Console.WriteLine("Opción no válida.");
                 return 1;
         }
