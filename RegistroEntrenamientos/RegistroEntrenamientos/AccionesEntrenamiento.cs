@@ -58,7 +58,7 @@ public class AccionesEntrenamiento
         // Añadir el entrenamiento al diccionario
         entrenamientos.Add(distancia, tiempo);
         // Confirmar que el entrenamiento ha sido registrado con éxito
-        Console.WriteLine("Entrenamiento registrado con éxito.");
+        Console.WriteLine("\nEntrenamiento registrado con éxito.");
     }
 
     public void ListarEntrenamientos()
@@ -70,6 +70,7 @@ public class AccionesEntrenamiento
             return;
         }
 
+        Console.WriteLine("\nEntrenamientos registrados:");
         // Mostrar todos los entrenamientos registrados
         foreach (KeyValuePair<double, double> entrenamiento in entrenamientos)
         {
@@ -82,6 +83,6 @@ public class AccionesEntrenamiento
         // Vaciar todos los entrenamientos
         entrenamientos.Clear();
         // Confirmar que los entrenamientos han sido vaciados con éxito
-        Console.WriteLine("Entrenamientos vaciados con éxito.");
+        Console.WriteLine("\nEntrenamientos vaciados con éxito.");
     }
 }

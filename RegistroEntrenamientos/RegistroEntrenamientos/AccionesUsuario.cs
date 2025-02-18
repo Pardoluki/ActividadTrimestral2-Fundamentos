@@ -52,7 +52,7 @@ public class AccionesUsuario
         else
         {
             // Si las credenciales son incorrectas, mostrar un mensaje de error
-            Console.WriteLine("Usuario o contraseña incorrectos.");
+            Console.WriteLine("\nUsuario o contraseña incorrectos.");
         }
         return 1; // Retornar 1 para indicar que el inicio de sesión falló y reaparezca el menú principal
     }
